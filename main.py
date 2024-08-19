@@ -1,3 +1,4 @@
+import os
 import smtplib
 import time
 from datetime import datetime
@@ -5,12 +6,12 @@ from datetime import datetime
 import requests
 
 # Define constants
-MY_EMAIL = '<insert email address>'
-MY_PASSWORD = '<insert email password>'
-MY_LAT = 9999  # Insert latitude
-MY_LNG = 9999  # Insert longitude
-MY_TZ = '<insert time zone>'
-MY_SMTP = '<insert SMTP server name>'
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
+MY_LAT = float(os.environ.get("MY_LAT"))
+MY_LNG = float(os.environ.get("MY_LNG"))
+MY_TZ = os.environ.get("MY_TZ")
+MY_SMTP = os.environ.get("MY_SMTP")
 
 # Create cache to store sunrise and sunset times for each day
 cache = {}
